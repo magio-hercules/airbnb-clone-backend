@@ -1,14 +1,13 @@
-from django.shortcuts import render
-from .models import Tweet
+from rest_framework.viewsets import ModelViewSet
+from .models import Tweet, Like
+from .serializers import TweetSerializer, LikeSerializer
 
 
-def see_all_tweets(request):
-    tweets = Tweet.objects.all()
-    return render(
-        request,
-        "all_tweets.html",
-        {
-            "tweets": tweets,
-            "title": "Hello this title comes from django!",
-        },
-    )
+class TweetViewSet(ModelViewSet):
+    serializer_class = TweetSerializer
+    queryset = Tweet.objects.all()
+
+
+class LikeViewSet(ModelViewSet):
+    serializer_class = LikeSerializer
+    queryset = Like.objects.all()

@@ -1,3 +1,8 @@
-from django.shortcuts import render
+from rest_framework.viewsets import ModelViewSet
+from .models import Wishlist
+from .serializers import WishlistSerializer
 
-# Create your views here.
+
+class WishlistViewSet(ModelViewSet):
+    serializer_class = WishlistSerializer
+    queryset = Wishlist.objects.all()

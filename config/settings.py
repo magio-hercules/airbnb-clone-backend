@@ -29,14 +29,11 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
+THIRD_PARTY_APPS = [
+    "rest_framework",
+]
 
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.auth",
-    "django.contrib.contenttypes",
-    "django.contrib.sessions",
-    "django.contrib.messages",
-    "django.contrib.staticfiles",
+CUSTOM_APPS = [
     "common.apps.CommonConfig",
     "users.apps.UsersConfig",
     "rooms.apps.RoomsConfig",
@@ -49,6 +46,17 @@ INSTALLED_APPS = [
     "direct_messages.apps.DirectMessagesConfig",
     "tweets.apps.TweetsConfig",
 ]
+
+SYSTEM_APPS = [
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
+]
+
+INSTALLED_APPS = SYSTEM_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",

@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path(
         "",
-        views.WishlistViewSet.as_view(
+        views.ReviewViewSet.as_view(
             {
                 "get": "list",
                 "post": "create",
@@ -14,7 +14,7 @@ urlpatterns = [
     ),
     path(
         "<int:pk>",
-        views.WishlistViewSet.as_view(
+        views.ReviewViewSet.as_view(
             {
                 "get": "retrieve",
                 "put": "partial_update",

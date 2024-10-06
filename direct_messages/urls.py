@@ -5,7 +5,7 @@ from . import views
 urlpatterns = [
     path(
         "",
-        views.ExperienceViewSet.as_view(
+        views.ChattingRoomViewSet.as_view(
             {
                 "get": "list",
                 "post": "create",
@@ -14,7 +14,7 @@ urlpatterns = [
     ),
     path(
         "<int:pk>",
-        views.ExperienceViewSet.as_view(
+        views.ChattingRoomViewSet.as_view(
             {
                 "get": "retrieve",
                 "put": "partial_update",
@@ -24,7 +24,7 @@ urlpatterns = [
     ),
     path(
         "",
-        views.PerkViewSet.as_view(
+        views.MessageViewSet.as_view(
             {
                 "get": "list",
                 "post": "create",
@@ -33,7 +33,7 @@ urlpatterns = [
     ),
     path(
         "<int:pk>",
-        views.PerkViewSet.as_view(
+        views.MessageViewSet.as_view(
             {
                 "get": "retrieve",
                 "put": "partial_update",

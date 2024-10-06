@@ -3,15 +3,42 @@ from . import views
 
 
 urlpatterns = [
-    # path("", views.Rooms.as_view()),
-    path("", views.see_all_rooms),
-    path("<int:room_pk>", views.see_one_room),
-    # path("<int:pk>", views.RoomDetail.as_view()),
-    # path("<int:pk>/reviews", views.RoomReviews.as_view()),
-    # path("<int:pk>/photos", views.RoomPhotos.as_view()),
-    # path("<int:pk>/bookings", views.RoomBookings.as_view()),
-    # path("<int:pk>/bookings/check", views.RoomBookingCheck.as_view()),
-    # path("amenities/", views.Amenities.as_view()),
-    # path("amenities/<int:pk>", views.AmenityDetail.as_view()),
-    # path("make-error", views.make_error),
+    path(
+        "",
+        views.RoomViewSet.as_view(
+            {
+                "get": "list",
+                "post": "create",
+            }
+        ),
+    ),
+    path(
+        "<int:pk>",
+        views.RoomViewSet.as_view(
+            {
+                "get": "retrieve",
+                "put": "partial_update",
+                "delete": "destroy",
+            }
+        ),
+    ),
+    path(
+        "",
+        views.AmenityViewSet.as_view(
+            {
+                "get": "list",
+                "post": "create",
+            }
+        ),
+    ),
+    path(
+        "<int:pk>",
+        views.AmenityViewSet.as_view(
+            {
+                "get": "retrieve",
+                "put": "partial_update",
+                "delete": "destroy",
+            }
+        ),
+    ),
 ]
